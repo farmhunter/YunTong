@@ -43,6 +43,7 @@ Thumbs.db
 .settings
 .classpath
 .metadata
+build
 
 # IDEA project file #
 #####################
