@@ -1,8 +1,8 @@
 /**
- * 
+ * 改架包为servlet请求，为控制层
  */
 /**
- * @author Administrator
+ * @author wjp
  *
  */
 package com.ccc.servlet;
