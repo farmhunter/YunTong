@@ -180,7 +180,7 @@ neverModules.modules.autocomplete.prototype = {
 
   _createAutocomplete: function () { with(this) {
       if (!document.body) throw new Error
-      (["neverModules Error","Document <BODY> not loaded£¬Can not create autoComplete"]);
+      (["neverModules Error","Document <BODY> not loadedï¿½ï¿½Can not create autoComplete"]);
 
       textbox.setAttribute("autocomplete","off");
       _completeContainer = document.createElement("DIV");
@@ -395,7 +395,6 @@ neverModules.modules.autocomplete.prototype = {
         rng.select(); rng=null;
       } catch (ex) {};
     } else {
-      //TODO
     }
   },
 
@@ -563,8 +562,8 @@ neverModules.modules.autocomplete.prototype = {
     /*
      * using cache array to improve the query speed performace
      * must be set the ignoreSpeed with false value
-     * »º´æ´æÓÚcacheDataÖÐ£¬Ê¹ÓÃcacheÀ´Ìá¸ß²éÑ¯ËÙ¶È¡£´óÊý¾ÝÁ¿Ê±ÓÐÐ§
-     * ´Ë¹¦ÄÜ»¹ÓÐÒ»¸öºÃ´¦,¿ÉÒÔ¼õÉÙÓë·þÎñÆ÷µÄ½»»¥£¨ÔÚAJAXÊ±£©
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cacheDataï¿½Ð£ï¿½Ê¹ï¿½ï¿½cacheï¿½ï¿½ï¿½ï¿½ß²ï¿½Ñ¯ï¿½Ù¶È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+     * ï¿½Ë¹ï¿½ï¿½Ü»ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ã´ï¿½,ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½AJAXÊ±ï¿½ï¿½
     */
     this._inTheCacheData = false;
 
@@ -717,7 +716,7 @@ neverModules.modules.autocomplete.prototype = {
   },
 
   textboxFocus: function () {
-    //½ûÖ¹focus
+    //ï¿½ï¿½Ö¹focus
     return;
     if (this.textbox)
     this.textbox.focus();
