@@ -47,6 +47,7 @@ build
 
 # IDEA project file #
 #####################
+out
 .idea
 *.ids
 *.iml
