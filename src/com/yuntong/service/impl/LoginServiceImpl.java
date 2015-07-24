@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    Logger logger = LogManager.getLogger(LoginServiceImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(LoginServiceImpl.class.getName());
 
     @Override
     public boolean checkUser(User user) {
