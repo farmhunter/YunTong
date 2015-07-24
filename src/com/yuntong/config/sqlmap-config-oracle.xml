@@ -6,6 +6,6 @@
     <!-- NOTE: do not set defaultStatementTimeout because it will override the settings on the DataSource -->
     <settings useStatementNamespaces="true" classInfoCacheEnabled="true" statementCachingEnabled="true"/>
 
-    <sqlMap resource="sqlmap-foundation-oracle.xml"/>
+    <sqlMap resource="com/yuntong/config/sqlmap/sqlmap-foundation-oracle.xml"/>
 
 </sqlMapConfig>

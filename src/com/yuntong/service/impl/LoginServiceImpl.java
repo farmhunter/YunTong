@@ -2,6 +2,8 @@ package com.yuntong.service.impl;
 
 import com.yuntong.model.User;
 import com.yuntong.service.LoginService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,8 +12,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
+    Logger logger = LogManager.getLogger(LoginServiceImpl.class.getName());
+
     @Override
     public boolean checkUser(User user) {
+        logger.info("checkUser begin");
+
+        logger.info("checkUser end");
         return true;
     }
 
