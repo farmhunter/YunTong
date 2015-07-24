@@ -1,5 +1,9 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD><TITLE>用户登陆</TITLE>
@@ -9,7 +13,7 @@
 </HEAD>
 <BODY bgColor=#ffffff leftMargin=0 background=/yuntong/picture/bj1.gif topMargin=0>
 <DIV id=Layer1 style="Z-INDEX: 1; LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%">
-    <FORM action="Y_Index.jsp" method=post align="left">
+    <FORM action="<%=path %>/foundation/service/login" method=post align="left">
         <DIV align=center>
             <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
                 <TBODY>
@@ -32,7 +36,7 @@
                                     <DIV align=left>
                                         <FONT color=#006633 size=2>用户名：</FONT>
                                         <FONT color=#006633 size=2>
-                                            <INPUT value="" class=tx maxLength=15 size=15 name=userName>
+                                            <INPUT value="" class=tx maxLength=15 size=15 name=username>
                                         </FONT>
                                         <FONT color=#006633 size=2></FONT>
                                     </DIV>
@@ -44,7 +48,7 @@
                                 <TD vAlign=left background="" height=9>
                                     <DIV align=left>
                                         <FONT color=#006633 size=2>密&nbsp;&nbsp;&nbsp;码：
-                                            <INPUT value="" class=tx type=password maxLength=15 size=15 name=userPwd>
+                                            <INPUT value="" class=tx type=password maxLength=15 size=15 name=password>
                                         </FONT>
                                     </DIV>
                                 </TD>

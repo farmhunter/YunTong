@@ -1,11 +1,16 @@
 package com.yuntong.repository.jdbc.impl;
 
-import com.ibatis.sqlmap.client.SqlMapClient;
-import com.yuntong.model.User;
-import com.yuntong.repository.jdbc.FoundationJdbc;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import org.springframework.stereotype.Repository;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.yuntong.model.User;
+import com.yuntong.repository.jdbc.FoundationJdbc;
 
 /**
  * Created by mylover on 7/22/15.
@@ -13,14 +18,27 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements FoundationJdbc {
 
-    @Autowired
+	@SuppressWarnings("deprecation")
+	@Autowired  
     public FoundationJdbcImpl(SqlMapClient sqlMapClient) {
         this.setSqlMapClient(sqlMapClient);
     }
 
-    @Override
-    public boolean checkUser(User user) {
-        return true;
-    }
+	@SuppressWarnings("deprecation")
+	@Override
+	public User findUserByUsername(String username) {
+		User user = new User();
+		List<User> userList = new ArrayList<User>();
+			try {
+				userList = this.getSqlMapClient()
+						.queryForList("Foundation.findUserByUsername",username);
+				if (userList.size() > 0)
+					user = userList.get(0);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	
+		return user;
+	}
 
 }

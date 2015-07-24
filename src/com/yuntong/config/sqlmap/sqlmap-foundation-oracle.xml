@@ -4,4 +4,11 @@
 
 <sqlMap namespace="Foundation">
 
+	<typeAlias alias="user" type="com.yuntong.model.User"/>
+     
+     <select id="findUserByUsername" resultClass= "user" parameterClass="String">
+     
+     	 SELECT ID,USERNAME,NAME,PASSWORD FROM YUNTONG_USER  WHERE  userName = #value#
+     	
+     </select>
 </sqlMap>

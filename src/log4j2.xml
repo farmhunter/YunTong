@@ -3,15 +3,10 @@
 <Configuration status="error">
 
 	<Properties>
-		<Property name="log_home">/Users/mylover/Workspaces/log/yuntong</Property>
+		<Property name="log_home">D:Workspaces/log/yuntong</Property>
 	</Properties>
 	
     <Appenders>
-        <Syslog name="RFC5424" format="RFC5424" host="localhost" port="514"
-                protocol="UDP" appName="yuntong" mdcId="mdc" includeMDC="true"
-                facility="LOCAL0" enterpriseNumber="18060" newLine="true"
-                messageId="Audit" id="App"/>
-
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} [%p] %c{1}%x - %m%n"/>
         </Console>

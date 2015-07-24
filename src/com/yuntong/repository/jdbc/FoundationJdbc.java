@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FoundationJdbc {
 
-    public boolean checkUser(User user);
+    public User findUserByUsername(String username);
 
 }
