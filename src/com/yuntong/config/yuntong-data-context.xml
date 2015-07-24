@@ -34,7 +34,7 @@
         <!-- 指定Entity实体类包路径 -->
         <property name="packagesToScan" >
             <array>
-                <value>com.yuntong.repository.jpa</value>
+                <value>com.yuntong.model</value>
             </array>
         </property>
         <!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->
