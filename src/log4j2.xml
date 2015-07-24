@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="error">
+
+	<Properties>
+		<Property name="log_home">/Users/mylover/Workspaces/log/yuntong</Property>
+	</Properties>
+	
+    <Appenders>
+        <Syslog name="RFC5424" format="RFC5424" host="localhost" port="514"
+                protocol="UDP" appName="yuntong" mdcId="mdc" includeMDC="true"
+                facility="LOCAL0" enterpriseNumber="18060" newLine="true"
+                messageId="Audit" id="App"/>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} [%p] %c{1}%x - %m%n"/>
+        </Console>
+        <RollingRandomAccessFile name="cloudcom" fileName="${log_home}/error.log"
+                     filePattern="${log_home}/cloudcom.log.%-d{yyyy-MM-dd-HH}">
+            <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} %x - %m%n"/>
+            <Policies>
+            	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+        	<AppenderRef ref="console"/>
+        	<AppenderRef ref="cloudcom"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
