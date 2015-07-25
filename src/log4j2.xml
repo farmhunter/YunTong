@@ -10,8 +10,8 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} [%p] %c{1}%x - %m%n"/>
         </Console>
-        <RollingRandomAccessFile name="cloudcom" fileName="${log_home}/error.log"
-                     filePattern="${log_home}/cloudcom.log.%-d{yyyy-MM-dd-HH}">
+        <RollingRandomAccessFile name="error" fileName="${log_home}/error.log"
+                     filePattern="${log_home}/error.log.%-d{yyyy-MM-dd-HH}">
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} %x - %m%n"/>
             <Policies>
             	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
@@ -22,7 +22,7 @@
     <Loggers>
         <Root level="info">
         	<AppenderRef ref="console"/>
-        	<AppenderRef ref="cloudcom"/>
+        	<AppenderRef ref="error"/>
         </Root>
     </Loggers>
 
