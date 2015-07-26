@@ -1,10 +1,12 @@
 package com.yuntong.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by mylover on 7/22/15.
@@ -42,8 +44,21 @@ public class User implements Serializable {
     
     @Column(name = "DEPARTMENT")
     private String department;
-    
-    
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORGANIZATION_ID")
+    private Organization organization;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "YUNTONG_USER_ROLE",
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
+    )
+    @JsonIgnore
+    private Set<Role> roles;
+
+
     public Long getId() {
         return id;
     }
@@ -60,31 +75,7 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getUserPhone() {
-		return userPhone;
-	}
-
-	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
-	}
-
-	public String getUserIdCard() {
-		return userIdCard;
-	}
-
-	public void setUserIdCard(String userIdCard) {
-		this.userIdCard = userIdCard;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	public String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -98,5 +89,45 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public String getUserIdCard() {
+        return userIdCard;
+    }
+
+    public void setUserIdCard(String userIdCard) {
+        this.userIdCard = userIdCard;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
