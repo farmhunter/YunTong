@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.yuntong.common.Foundation;
 import com.yuntong.model.User;
@@ -42,9 +43,13 @@ public class LoginController {
     			path = "Y_Index.jsp";
     		}
     	} else {
-    		path = "error.jsp";
+    		path = Foundation.MODULE_MAPPING_ROOT + "service/"+"Y_Error.jsp";
     	}
-    	ModelAndView model=new ModelAndView(path);
+    	
+    	ModelAndView model=new ModelAndView();
+		RedirectView redirectView = new RedirectView("/yuntong/" + path);
+		redirectView.setExpandUriTemplateVariables(false);
+		model.setView(redirectView);
     	logger.info("end login");
         return model;
     }

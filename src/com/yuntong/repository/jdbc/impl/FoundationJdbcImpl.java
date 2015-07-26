@@ -23,8 +23,9 @@ public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements Founda
     public FoundationJdbcImpl(SqlMapClient sqlMapClient) {
         this.setSqlMapClient(sqlMapClient);
     }
-
-	@SuppressWarnings("deprecation")
+//自动装配i的话那么客户端又是从哪里来装配的呢
+	
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	@Override
 	public User findUserByUsername(String username) {
 		User user = new User();
@@ -40,5 +41,17 @@ public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements Founda
 	
 		return user;
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public void addOneUser(User addOne){
+		try {
+			this.getSqlMapClient().insert("Foundation.addOne",addOne);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 }

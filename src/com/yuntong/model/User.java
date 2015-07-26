@@ -33,7 +33,17 @@ public class User implements Serializable {
 
     @Column(name = "password")
     private String password;
-
+    
+    @Column(name = "USERPHONE")
+     private String userPhone;
+    
+    @Column(name = "IDCARD")
+    private String userIdCard;
+    
+    @Column(name = "DEPARTMENT")
+    private String department;
+    
+    
     public Long getId() {
         return id;
     }
@@ -50,7 +60,31 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getUsername() {
+    public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getUserIdCard() {
+		return userIdCard;
+	}
+
+	public void setUserIdCard(String userIdCard) {
+		this.userIdCard = userIdCard;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getUsername() {
         return username;
     }
 

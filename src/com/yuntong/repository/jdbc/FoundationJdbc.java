@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface FoundationJdbc {
 
     public User findUserByUsername(String username);
+    
+    public void addOneUser(User addOneUser);
 
 }

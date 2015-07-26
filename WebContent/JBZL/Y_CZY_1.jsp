@@ -1,5 +1,10 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>  
@@ -115,7 +120,8 @@ function returnadd(){
     				
     							<table bgcolor="" border="0" cellpadding="0" cellspacing="0" width="100%" class="tx">
  									<tr>
- 										<td  bgcolor="a0c0c0"><form action="/yuntong/JBZL/y_UserSplit.do" method="post">&nbsp;										
+ 										<td  bgcolor="a0c0c0">
+ 										<form action="/yuntong/JBZL/y_UserSplit.do" method="post">&nbsp;										
  											所属公司：<select class="tx" name="filiale">
  												<option value="0" selected="selected">------------</option>
  												<c:forEach items="${sessionScope.Y_Filiale}" var="list">
@@ -245,7 +251,7 @@ function returnadd(){
     								</td>
     								<td valign="top">
     								<span>
-    									<form name="mf2" action="/yuntong/JBZL/y_addUserInfo" method="post">
+    									<form name="mf2" action="<%=path %>/foundation/service/user/addUser" method="post">
     									
     										<span id="addinfo"><font color="#804060" size="2"><b>添加新用户：</b></font></span>
     										<span id="updataInfo" style="display:none"><font size="2" color="#804060"><b>修改用户信息：</b></font>
@@ -291,8 +297,8 @@ function returnadd(){
  											真实姓名：<input class="tx" type="text" name="userTrueName"><font color="red">*</font>
  											&nbsp;&nbsp;&nbsp;&nbsp;联系电话：<input class="tx" type="text" name="userPhone">
  											&nbsp;&nbsp;&nbsp;&nbsp;身份证号码：<input class="tx" type="text" name="userCardId" size="30"><br>
- 											<span id="div1">登陆密码：<input id="div1" class="tx" type="text" name="userPwd1"><font color="red">*</font>&nbsp;&nbsp;&nbsp;&nbsp;
- 											密码确认：<input id="div2" class="tx" type="text" name="userPwd2"><font color="red">*</font><br><br></span>
+ 											<span id="div1">登陆密码：<input id="div1" class="tx" type="text" name="password"><font color="red">*</font>&nbsp;&nbsp;&nbsp;&nbsp;
+ 											密码确认：<input id="div2" class="tx" type="text" name="password2"><font color="red">*</font><br><br></span>
  											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  											
  											&nbsp;&nbsp;&nbsp;&nbsp;
