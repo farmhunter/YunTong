@@ -66,7 +66,7 @@ public class UserController {
 	@RequestMapping(value = "findAllUsers", method = RequestMethod.GET)
 	public ModelAndView findAllUsers() {
 
-		List<User> list = new ArrayList<>();
+		List<User> list = new ArrayList<User>();
 		// List <User> roleList = new ArrayList<>();
 		list = userService.findAllUsers();
 		// roleList =
