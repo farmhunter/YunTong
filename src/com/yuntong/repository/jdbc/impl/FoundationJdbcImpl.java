@@ -1,16 +1,18 @@
 package com.yuntong.repository.jdbc.impl;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
-import org.springframework.stereotype.Repository;
-
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.yuntong.model.User;
 import com.yuntong.repository.jdbc.FoundationJdbc;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
+import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mylover on 7/22/15.
@@ -63,6 +65,14 @@ public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements Founda
 		}
 		return userList;
 
+	}
+
+	@Override
+	public Page<User> findUsers(Pageable pageable){
+		List<User> users = this.getSqlMapClientTemplate().queryForList("Foundation.findUser");
+		Long total = (Long) this.getSqlMapClientTemplate().queryForObject("Foundation.findUserCount");
+		Page<User> usersPage = new PageImpl<User>(users, pageable, total);
+		return usersPage;
 	}
 
 }

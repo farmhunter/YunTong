@@ -1,16 +1,17 @@
 package com.yuntong.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.yuntong.model.User;
 import com.yuntong.repository.jdbc.FoundationJdbc;
 import com.yuntong.repository.jpa.UserRepository;
 import com.yuntong.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -45,5 +46,15 @@ public class UserServiceImpl implements UserService {
 		}
 		return userList;
 		
+	}
+
+	@Override
+	public Page<User> findAllUser(Pageable pageable) {
+		int type = 1;
+		if (type == 1) {
+			return userReponsity.findAll(pageable);
+		} else {
+			return foundationJdbc.findUsers(pageable);
+		}
 	}
 }
