@@ -92,7 +92,7 @@
     											<tfoot>
     											<tr>
     										<logic:present scope="request" name="uqiun">
-    											<td colspan="9" align="right"><a href="/yuntong/Financial/x_Financial.do?test=lose">显示所有</a></td>
+    											<td colspan="9" align="right"><a href="">显示所有</a></td>
     										</logic:present>
     										<logic:notPresent scope="request" name="Selectfenye">
     										

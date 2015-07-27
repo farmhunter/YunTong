@@ -120,8 +120,7 @@ function returnadd(){
     				
     							<table bgcolor="" border="0" cellpadding="0" cellspacing="0" width="100%" class="tx">
  									<tr>
- 										<td  bgcolor="a0c0c0">
- 										<form action="/yuntong/JBZL/y_UserSplit.do" method="post">&nbsp;										
+ 										<td  bgcolor="a0c0c0"><form action="/yuntong/JBZL/y_UserSplit.do" method="post">&nbsp;										
  											所属公司：<select class="tx" name="filiale">
  												<option value="0" selected="selected">------------</option>
  												<c:forEach items="${sessionScope.Y_Filiale}" var="list">
@@ -207,21 +206,23 @@ function returnadd(){
  										<td align="center"><b>删除</b></td>
  									</tr>
  									<c:forEach items="${Y_userinfopage1}" var="list">
- 									<tr  id="${list.userId}" onmouseover="changecolor(this);" onmouseout="changeback(this);">
+ 									<tr  id="${list.id}" onmouseover="changecolor(this);" onmouseout="changeback(this);">
  										
- 										<td><font color="#804060">${list.userName}</font></td>
- 										<td>${list.userTrueName}</td>
- 										<td><font color="#804060">${list.userFilialeName}</font></td>
- 										<td>${list.userDepartmentName}</td>
+ 										<td><font color="#804060">${list.username}</font></td>
+ 										<td>${list.name}</td>
+ 										<td><font color="#804060">${list.organization}</font></td>
+ 										<td>${list.organization}</td>
  										<td><font color="#804060">${list.userPhone}</font></td>
- 										<td>${list.userCardID}</td>
- 										<td><font color="#804060">${list.userRoleName}</font></td>
- 										<td>${list.userLoginNum}</td>
- 										<td><font color="#804060">${list.strUserDate}</font></td>
+ 										<td>${list.userIdCard}</td>
+ 										<td>${list.loginNum}</td>
+ 										<td><font color="#804060">${list.userDate}</font></td>
  										<td><font color="#804060">
+ 										<!-- 此处用来显示所有的用户，那么下面一句是干什么的呢？ -->
+ 										<!-- 
  										<a onclick="findinfo('${list.userId}','${list.userName}','${list.userFilialeId}','${list.userDepartmentId}','${list.userRoleId}','${list.userTrueName}','${list.userPhone}','${list.userCardID}','${list.userPwd}','${list.userLoginNum}','${list.userLoginDate}','${list.userDate}');"  style="cursor:hand">[修改]</a>
- 										</td>
- 										<td><font color="#804060"><a name="${list.userName}" id="${list.userId}" onclick="doRequest(this.id,this.name)"  style="cursor:hand">[删除]</a></font></td>
+ 										 -->
+ 										 </td>
+ 										<td><font color="#804060"><a name="${list.userName}" id="${list.id}" onclick="doRequest(this.id,this.name)"  style="cursor:hand">[删除]</a></font></td>
  									</tr>
  									</c:forEach>
  									</tbody>

@@ -1,14 +1,15 @@
 package com.yuntong.model;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "YUNTONG_ORGANIZATION")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Organization {
 
     @Id

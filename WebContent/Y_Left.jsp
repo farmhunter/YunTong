@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!-- 菜单弹出控制 -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script language="javascript">
 function shouhuo()
@@ -180,7 +181,7 @@ function ziliao()
 	<a onclick="quanxian();" style="cursor:hand" id="left1008" onmousemove="myInfoXmlHttpDoRequest(this.id);">[损货登记]</a><br>
 	<a onclick="quanxian();" style="cursor:hand" id="left1004" onmousemove="myInfoXmlHttpDoRequest(this.id);">[未估价货票]</a>
 	</c:if>-->
-</div></td>
+</div></td> 
 </tr>
 <tr>
 <td onclick="piaowu();" background="/yuntong/picture/img01.jpg" height="28" align="center" style="cursor:hand" id="left2000"  onmousemove="myInfoXmlHttpDoRequest(this.id);this.background='/yuntong/picture/sparebtnon.jpg'" onmouseout="this.background='/yuntong/picture/img01.jpg'"><font color="#804020">票务管理</font></td>
@@ -282,7 +283,7 @@ function ziliao()
 <tr>
 <td align="center"><div id="ziliao" style="display:none ">
 
-<a href="/yuntong/JBZL/Y_CZY_1.jsp" id="left7001" onmousemove="myInfoXmlHttpDoRequest(this.id);">[操作员]</a><br>
+<a href="/yuntong/foundation/service/user/findAllUsers" id="left7001" onmousemove="myInfoXmlHttpDoRequest(this.id);">[操作员]</a><br>
 <a href="/yuntong/JBZL/Y_YHQX_1.jsp" id="left7002" onmousemove="myInfoXmlHttpDoRequest(this.id);">[用户权限]</a><br>
 <a href="/yuntong/JBZL/Y_YSYF.jsp" id="left7004" onmousemove="myInfoXmlHttpDoRequest(this.id);">[运费运时调整]</a><br>
 <!--<c:if test="${userLoginInfo.roleJBZL==1}"></c:if>

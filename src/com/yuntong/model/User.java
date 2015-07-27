@@ -1,12 +1,23 @@
 package com.yuntong.model;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created by mylover on 7/22/15.
@@ -42,10 +53,22 @@ public class User implements Serializable {
     @Column(name = "IDCARD")
     private String userIdCard;
     
+    @Column(name = "LOGINNUM")
+    private String loginNum;
+    
+    @Column(name = "LOGINDATE")
+    private Date loginDate;                              //这种日期和sql中的又区别么
+    
+    @Column(name = "USERDATE")
+    private Date userDate;
+    
+    /*
     @Column(name = "DEPARTMENT")
     private String department;
-
-    @ManyToOne(fetch = FetchType.EAGER)
+	*/
+    
+    
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ORGANIZATION_ID")
     private Organization organization;
 
@@ -55,7 +78,7 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
     )
-    @JsonIgnore
+    @JsonIgnore                                           
     private Set<Role> roles;
 
 
@@ -66,6 +89,7 @@ public class User implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
 
     public String getName() {
         return name;
@@ -106,7 +130,8 @@ public class User implements Serializable {
     public void setUserIdCard(String userIdCard) {
         this.userIdCard = userIdCard;
     }
-
+    
+    /*
     public String getDepartment() {
         return department;
     }
@@ -114,7 +139,7 @@ public class User implements Serializable {
     public void setDepartment(String department) {
         this.department = department;
     }
-
+	*/
     public Organization getOrganization() {
         return organization;
     }
@@ -130,4 +155,28 @@ public class User implements Serializable {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    public String getLoginNum() {
+		return loginNum;
+	}
+
+	public void setLoginNum(String loginNum) {
+		this.loginNum = loginNum;
+	}
+
+	public Date getLoginDate() {
+		return loginDate;
+	}
+
+	public void setLoginDate(Date loginDate) {
+		this.loginDate = loginDate;
+	}
+
+	public Date getUserDate() {
+		return userDate;
+	}
+
+	public void setUserDate(Date userDate) {
+		this.userDate = userDate;
+	}
+
 }

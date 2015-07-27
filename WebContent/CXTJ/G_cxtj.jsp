@@ -75,7 +75,7 @@
     			  
     				<table border="0" cellpadding="0" cellspacing="0" class="tx" width="100%">
     					<tr>
-    						<td>当前位置:>><a href="/yuntong/y_GoIndex.do">首页</a>>>查询统计>>货票查询</td>
+    						<td>当前位置:>><a href="">首页</a>>>查询统计>>货票查询</td>
     					</tr>
     					
     				</table>

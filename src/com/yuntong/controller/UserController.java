@@ -1,5 +1,8 @@
 package com.yuntong.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +43,7 @@ public class UserController {
 			//密码的比较放在jsp上了
 			){
 		User addOneUser = new User();
-		addOneUser.setDepartment(department);
+	//	addOneUser.setDepartment(department);
 		addOneUser.setUsername(userName);
 		addOneUser.setName(userTrueName);
 		addOneUser.setUserPhone(userPhone);
@@ -59,5 +62,30 @@ public class UserController {
 		return model;
 	} 
 	
+	@ResponseBody
+	@RequestMapping(value = "findAllUsers", method = RequestMethod.GET)
+	public ModelAndView findAllUsers() {
+
+		List<User> list = new ArrayList<>();
+		// List <User> roleList = new ArrayList<>();
+		list = userService.findAllUsers();
+		// roleList =
+		String path = "JBZL/Y_CZY_1.jsp";
+		logger.info("com in");
+
+		/*
+		 * ModelAndView model=new ModelAndView();
+		 * model.addObject("Y_userinfopage1", list); RedirectView redirectView =
+		 * new RedirectView("/yuntong/" + path);
+		 * redirectView.setExpandUriTemplateVariables(false);
+		 * model.setView(redirectView); logger.info("end login");
+		 */
+		ModelAndView model = new ModelAndView();
+		model.addObject("Y_userinfopage1", list);
+		model.setViewName("forward:/JBZL/Y_CZY_1.jsp");
+
+		logger.info("end login");
+		return model;
+	}
 
 }

@@ -28,7 +28,7 @@
     			<!-- 中间内容（开始） -->
     				<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tx">
     					<tr>
-    						<td>当前位置：>><a href="/yuntong/y_GoIndex.do">首页</a>>>财务管理>>预收货款>>货票详细信息</td>
+    						<td>当前位置：>><a href="">首页</a>>>财务管理>>预收货款>>货票详细信息</td>
     					</tr>
     				</table>
     				<table border="0" cellpadding="0" cellspacing="0" width="100%"  class="tx">
@@ -44,7 +44,7 @@
     					<tr>
     						<td rowspan="2" valign="middle">
     						
-    						<form action="/yuntong/Financial/x_Goods.do" method="post">
+    						<form action="" method="post">
     							<table border="0" width="80%" cellpadding="0" cellspacing="0" class="tx" align="center">
     							<caption>货票基本信息</caption>
     								<tr align="center">

@@ -41,17 +41,28 @@ public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements Founda
 	
 		return user;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
-	public void addOneUser(User addOne){
+	public void addOneUser(User addOne) {
 		try {
-			this.getSqlMapClient().insert("Foundation.addOne",addOne);
+			this.getSqlMapClient().insert("Foundation.addOne", addOne);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<User> findAllUsers() {
+		List<User> userList = new ArrayList<User>();
+		try {
+			 userList = this.getSqlMapClient().queryForList("Foundation.findAllUsers");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return userList;
+
+	}
 
 }
