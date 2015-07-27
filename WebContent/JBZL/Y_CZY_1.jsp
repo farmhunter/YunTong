@@ -218,11 +218,11 @@ function returnadd(){
  										<td><font color="#804060">${list.userDate}</font></td>
  										<td><font color="#804060">
  										<!-- 此处用来显示所有的用户，那么下面一句是干什么的呢？ -->
- 										<!-- 
- 										<a onclick="findinfo('${list.userId}','${list.userName}','${list.userFilialeId}','${list.userDepartmentId}','${list.userRoleId}','${list.userTrueName}','${list.userPhone}','${list.userCardID}','${list.userPwd}','${list.userLoginNum}','${list.userLoginDate}','${list.userDate}');"  style="cursor:hand">[修改]</a>
- 										 -->
+ 										
+ 										<%-- <a onclick="findinfo('${list.id}','${list.userName}','${list.userFilialeId}','${list.userDepartmentId}','${list.userRoleId}','${list.userTrueName}','${list.userPhone}','${list.userCardID}','${list.userPwd}','${list.userLoginNum}','${list.userLoginDate}','${list.userDate}');"  style="cursor:hand">[修改]</a>--%> 
+ 										
  										 </td>
- 										<td><font color="#804060"><a name="${list.userName}" id="${list.id}" onclick="doRequest(this.id,this.name)"  style="cursor:hand">[删除]</a></font></td>
+ 										<td><font color="#804060"><a name="${list.username}" id="${list.id}" onclick="doRequest(this.id,this.name)"  style="cursor:hand">[删除]</a></font></td>
  									</tr>
  									</c:forEach>
  									</tbody>
