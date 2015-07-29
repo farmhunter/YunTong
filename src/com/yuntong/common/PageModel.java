@@ -1,22 +1,33 @@
 package com.yuntong.common;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by mylover on 7/27/15.
+ * @param <T>
  */
-public class PageModel implements Serializable {
+public class PageModel<T> implements Serializable {
     private int number;
     private int size;
     private int totalPages;
     private int numberOfElements;
     private long totalElements;
+    private List<T> pageInfo;
 
     public int getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public List<T> getPageInfo() {
+		return pageInfo;
+	}
+
+	public void setPageInfo(List<T> pageInfo) {
+		this.pageInfo = pageInfo;
+	}
+
+	public void setNumber(int number) {
         this.number = number;
     }
 

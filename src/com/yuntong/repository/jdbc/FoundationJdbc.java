@@ -1,11 +1,12 @@
 package com.yuntong.repository.jdbc;
 
-import com.yuntong.model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.yuntong.common.PageModel;
+import com.yuntong.model.User;
 
 /**
  * Created by mylover on 7/22/15.
@@ -19,5 +20,5 @@ public interface FoundationJdbc {
     
     public List<User> findAllUsers();
 
-    Page<User> findUsers(Pageable pageable);
+    public PageModel<User> findUsers(Map<String,Object> pageInfo);
 }

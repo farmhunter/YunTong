@@ -15,18 +15,23 @@
 
 <%-------------------------------------------修改------------------------------------%>
 //填如选定项信息
-function findinfo(id,name,f,d,role,userTrueName,userPhone,userCardId,userPwd,userLoginNum,userLoginDate,userDate){
+/*
+function findinfo(id,name,f,d,role,userTrueName,userPhone,userCardId,userPwd,
+		userLoginNum,userLoginDate,userDate){
+	*/
+	function findinfo(id,name,d,userTrueName,userPhone,userCardId,userPwd,
+		userLoginNum,userLoginDate,userDate){
 	var form=document.mf2;
 	//用户编号
 	form.userId.value=id;
 	//用户名
 	form.userName.value=name;
 	//分公司编号
-	for(i=0;i<form.filiale.options.length;i++){
-		if(form.filiale.options[i].value==f){
-			form.filiale.options[i].selected="selected";
-		}
-	}
+	//for(i=0;i<form.filiale.options.length;i++){
+		//if(form.filiale.options[i].value==f){
+			//form.filiale.options[i].selected="selected";
+//		}
+	//}
 
 	//部门
 	for(i=0;i<form.department.options.length;i++){
@@ -34,12 +39,15 @@ function findinfo(id,name,f,d,role,userTrueName,userPhone,userCardId,userPwd,use
 			form.department.options[i].selected="selected";
 		}
 	}
+	
+	/*
 	//权限
 	for(i=0;i<form.userRole.options.length;i++){
 		if(form.userRole.options[i].value==role){
 			form.userRole.options[i].selected="selected";
 		}
 	}
+	*/
 	//真实姓名
 	form.userTrueName.value=userTrueName;
 	//联系电话
@@ -60,7 +68,7 @@ function findinfo(id,name,f,d,role,userTrueName,userPhone,userCardId,userPwd,use
 	//提示信息切换
 	document.getElementById("div1").style.display="none";
 	
-	addinfo.style.display='none';
+	document.getElementById("addinfo").style.display='none';
 	updataInfo.style.display='';
 }
 //返回填加
@@ -94,7 +102,7 @@ function returnadd(){
 	form.submit.value="填加";
 	//提示信息切换
 	document.getElementById("div1").style.display="";
-	addinfo.style.display='';
+	document.getElementById("addinfo").style.display='';
 	updataInfo.style.display='none';
 }
 
@@ -205,7 +213,7 @@ function returnadd(){
  										<td align="center"><b>修改</b></td>
  										<td align="center"><b>删除</b></td>
  									</tr>
- 									<c:forEach items="${Y_userinfopage1}" var="list">
+ 									<c:forEach items="${useList}" var="list">
  									<tr  id="${list.id}" onmouseover="changecolor(this);" onmouseout="changeback(this);">
  										
  										<td><font color="#804060">${list.username}</font></td>
@@ -221,6 +229,10 @@ function returnadd(){
  										
  										<%-- <a onclick="findinfo('${list.id}','${list.userName}','${list.userFilialeId}','${list.userDepartmentId}','${list.userRoleId}','${list.userTrueName}','${list.userPhone}','${list.userCardID}','${list.userPwd}','${list.userLoginNum}','${list.userLoginDate}','${list.userDate}');"  style="cursor:hand">[修改]</a>--%> 
  										
+ 										<a onclick="findinfo('${list.id}','${list.username}','${list.organization}',
+ 										'${list.name}','${list.userPhone}',	'${list.userIdCard}','${list.password}',
+ 										'${list.loginNum}','${list.loginDate}','${list.userDate}');"  style="cursor:hand">[修改]</a>
+ 										
  										 </td>
  										<td><font color="#804060"><a name="${list.username}" id="${list.id}" onclick="doRequest(this.id,this.name)"  style="cursor:hand">[删除]</a></font></td>
  									</tr>
@@ -231,15 +243,17 @@ function returnadd(){
  								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tx"> 							
     							<tr bgcolor="#CCCCCC">
     							<td align="center"><a class="tx" href="/yuntong/JBZL/y_GoYHQX.do">权限管理</a></td>    							
-    						<td align="center"><a href="/yuntong/JBZL/y_UserSplit.do?pageNum=A">[首页]</a></td>
-    						<td align="center"><a href="/yuntong/JBZL/y_UserSplit.do?pageNum=B">[上一页]</a></td>
-    						<td align="center"><a href="/yuntong/JBZL/y_UserSplit.do?pageNum=C">[下一页]</a></td>
-    						<td align="center"><a href="/yuntong/JBZL/y_UserSplit.do?pageNum=D">[末页]</a></td>
-    						<td align="center">${Y_usercurPate}/${Y_userpageSize}</td>
+    						<td align="center">
+    						<a href="/yuntong/foundation/service/user/findAllUsers?page=${pageInfo.number }&limit=2&searchType=firstPage">[首页]</a></td>
+    						<td align="center"><a href="/yuntong/foundation/service/user/findAllUsers?page=${pageInfo.number }&limit=2&searchType=beforePage>[上一页]</a></td>
+    						<td align="center"><a href="/yuntong/foundation/service/user/findAllUsers?page=${pageInfo.number }&limit=2&searchType=nextPage">[下一页]</a></td>
+    						<td align="center"><a href="/yuntong/foundation/service/user/findAllUsers?page=${pageInfo.number }&limit=2&searchType=lastPage">[末页]</a></td>
+    						<td align="center">${pageInfo.number}/${pageInfo.totalPages}</td>
     						<td  align="center" width="20%">    						
     						<input class="tx" type="text" name="page" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     						<input type="submit" class="tx" value="转到">
     						    						    						    				
+    						    					    						    				
     						</td>
     						<td><a href="/yuntong/JBZL/y_GoCZY.do" class="tx">显示全部</a></td>
     					</tr>
@@ -254,8 +268,8 @@ function returnadd(){
     								<span>
     									<form name="mf2" action="<%=path %>/foundation/service/user/addUser" method="post">
     									
-    										<span id="addinfo"><font color="#804060" size="2"><b>添加新用户：</b></font></span>
-    										<span id="updataInfo" style="display:none"><font size="2" color="#804060"><b>修改用户信息：</b></font>
+    										<span id="addinfo style="display:"" ><font color="#804060" size="2"><b>添加新用户：</b></font></span>
+    										<span id="updataInfo" style="display:"><font size="2" color="#804060"><b>修改用户信息：</b></font>
     										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -1,10 +1,12 @@
 package com.yuntong.service;
 
-import com.yuntong.model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.domain.Page;
+
+import com.yuntong.common.PageModel;
+import com.yuntong.model.User;
 
 public interface UserService {
 
@@ -12,5 +14,5 @@ public interface UserService {
 	
 	public List<User> findAllUsers();
 
-	Page<User> findAllUser(Pageable pageable);
+	public PageModel<User> findAllUser(Map<String,Object> pageContent);
 }

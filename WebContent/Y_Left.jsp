@@ -283,7 +283,7 @@ function ziliao()
 <tr>
 <td align="center"><div id="ziliao" style="display:none ">
 
-<a href="/yuntong/foundation/service/user/findAllUsers?pageNo = 15" id="left7001" onmousemove="myInfoXmlHttpDoRequest(this.id);">[操作员]</a><br>
+<a href="/yuntong/foundation/service/user/findAllUsers?page=2&limit=2&searchType=firstPage" id="left7001" onmousemove="myInfoXmlHttpDoRequest(this.id);">[操作员]</a><br>
 <a href="/yuntong/JBZL/Y_YHQX_1.jsp" id="left7002" onmousemove="myInfoXmlHttpDoRequest(this.id);">[用户权限]</a><br>
 <a href="/yuntong/JBZL/Y_YSYF.jsp" id="left7004" onmousemove="myInfoXmlHttpDoRequest(this.id);">[运费运时调整]</a><br>
 <!--<c:if test="${userLoginInfo.roleJBZL==1}"></c:if>
