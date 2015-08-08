@@ -69,8 +69,10 @@ public class User implements Serializable {
     
     
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ORGANIZATION_ID")
+    @JoinColumn(name = "ORGANIZATION_ID")    //如何识别对应的关联的主键的啊
     private Organization organization;
+	//定义关系类的类型，默认是该成员属性对应的类类型，所以通常不需要提供定义。,在数据表里面的体现是不是就变成了参照表的主键啊
+	//1，从属性来判断要关联的表，2，从要关联的表中提取主键，放到本表当中去
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

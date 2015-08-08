@@ -75,7 +75,7 @@ public class FoundationJdbcImpl extends SqlMapClientDaoSupport implements Founda
 		int pageNum = (int)pageInfo.get("currentPage");
 		int pageLimit = (int)pageInfo.get("pageSize");
 		
-		List<User> users = this.getSqlMapClientTemplate().queryForList("Foundation.findAllUser",pageLimit);
+		List<User> users = this.getSqlMapClientTemplate().queryForList("Foundation.findAllUser",pageNum);
 		Long total = (Long) this.getSqlMapClientTemplate().queryForObject("Foundation.findUserCount");
 		PageModel<User> pageInformation = new PageModel<User>();
 		pageInformation.setPageInfo(users);

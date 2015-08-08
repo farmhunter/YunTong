@@ -79,7 +79,7 @@
       </tr>
       <tr>
         <td><div align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性&nbsp;&nbsp;&nbsp;&nbsp;别:</div></td>
-        <td><div align="left">
+        <td><div align="left">	
 		 	<input type="radio" id="driverSex" name="driverSex" value="0" checked="checked">男
 		 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          	 <input type="radio" id="driverSex" name="driverSex" value="1">女
