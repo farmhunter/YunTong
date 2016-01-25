@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yuntong.common.PageModel;
-import com.yuntong.model.PageInf;
 import com.yuntong.model.User;
 import com.yuntong.repository.jdbc.FoundationJdbc;
 import com.yuntong.repository.jpa.UserRepository;
